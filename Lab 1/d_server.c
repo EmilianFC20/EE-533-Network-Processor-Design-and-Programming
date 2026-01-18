@@ -1,3 +1,5 @@
+/* A simple server in the internet domain using UDP
+   The port number is passed as an argument */
 #include <stdio.h>
 #include <sys/types.h> 
 #include <sys/socket.h>
