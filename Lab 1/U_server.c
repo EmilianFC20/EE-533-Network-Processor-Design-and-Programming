@@ -21,6 +21,7 @@ int main(int argc, char *argv[])
    strcpy(serv_addr.sun_path, argv[1]);
    servlen=strlen(serv_addr.sun_path) + 
                      sizeof(serv_addr.sun_family);
+   unlink(argv[1]);
    if(bind(sockfd,(struct sockaddr *)&serv_addr,servlen)<0)
        error("binding socket"); 
 
