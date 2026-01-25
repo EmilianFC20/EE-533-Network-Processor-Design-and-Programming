@@ -1,0 +1,2 @@
+verilog work "../src/verilog/stopwatch_tb.v"
+verilog work "C:/Xilinx/10.1/ISE/verilog/src/glbl.v"

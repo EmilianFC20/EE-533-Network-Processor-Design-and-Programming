@@ -1,0 +1,39 @@
+Command line:
+   ./time_cnt_tb_isim_beh.exe
+     -intstyle  ise
+     -ipchost  localhost
+     -ipcport  1043
+
+Fri Jan 23 22:33:00 2026
+
+Total Line Count : 388
+
+ Elaboration Time: 0.015625 sec
+
+ Current Memory Usage: 142.475 Meg
+
+ Total Signals          : 750
+ Total Nets             : 236
+ Total Signal Drivers   : 212
+ Total Blocks           : 120
+ Total Primitive Blocks : 113
+ Total Processes        : 256
+ Total Traceable Variables  : 66
+ Total Scalar Nets and Variables : 445
+ntrace select -o on -m / -l this 
+ntrace start 
+isimrun 1000 ns 
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+restart
+isimrun 3000ns 
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+isimstop 
+
+ Total Simulation Time: 0.078125 sec
+
+ Current Memory Usage: 153.027 Meg
+
+Fri Jan 23 22:44:40 2026
+

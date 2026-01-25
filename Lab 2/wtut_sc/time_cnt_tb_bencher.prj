@@ -1,0 +1,4 @@
+verilog work "ch4rled.vf"
+verilog work "cd4rled.vf"
+verilog work "time_cnt.vf"
+verilog work C:/Xilinx/10.1/ISE/verilog/src/glbl.v

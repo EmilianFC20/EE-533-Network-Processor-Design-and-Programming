@@ -1,0 +1,80 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2003 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1
+//  \   \         Application : ISE
+//  /   /         Filename : or32_tb.ant
+// /___/   /\     Timestamp : Sat Jan 24 18:11:36 2026
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: or32_tb
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module or32_tb;
+    reg [31:0] A = 32'b00000000000000000000000000000000;
+    reg [31:0] B = 32'b00000000000000000000000000000000;
+    wire [31:0] O;
+
+
+    or32 UUT (
+        .A(A),
+        .B(B),
+        .O(O));
+
+    integer TX_FILE = 0;
+    integer TX_ERROR = 0;
+    
+    initial begin    // Annotation process
+        #0;
+        ANNOTATE_O;
+        forever begin
+            #50;
+            ANNOTATE_O;
+            #50;
+        end
+    end
+
+    initial begin  // Open the annotations file...
+        TX_FILE = $fopen("C:\\Documents and Settings\\student\\Desktop\\ALU\\or32_tb.ano");
+        #1000 // Final time:  1000 ns
+        $display("Success! Annotation Simulation Complete.");
+        $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
+        $fclose(TX_FILE);
+        $finish;
+    end
+
+    initial begin
+        // -------------  Current Time:  100ns
+        #100;
+        A = 32'b00000000000000000000000010101100;
+        B = 32'b00000000000000000000000000101000;
+        // -------------------------------------
+        // -------------  Current Time:  200ns
+        #100;
+        A = 32'b00000000000000000000000000001111;
+        B = 32'b00000000000000000000000000110011;
+        // -------------------------------------
+        // -------------  Current Time:  300ns
+        #100;
+        A = 32'b00000000000000001100110011001100;
+        B = 32'b00000000000000001100101011010001;
+    end
+
+    task ANNOTATE_O;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,O,%b]", $time, O);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+endmodule
+

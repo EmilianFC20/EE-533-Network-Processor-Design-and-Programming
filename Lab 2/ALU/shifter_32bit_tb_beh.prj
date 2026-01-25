@@ -1,0 +1,4 @@
+verilog work "shifter_8bit.vf"
+verilog work "shifter_32bit.vf"
+verilog work "shifter_32bit_tb.tfw"
+verilog work "C:/Xilinx/10.1/ISE/verilog/src/glbl.v"

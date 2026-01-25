@@ -1,0 +1,337 @@
+Release 10.1 - xst K.31 (nt)
+Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to C:/Documents and Settings/student/Desktop/ALU/ALU2/xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> Parameter xsthdpdir set to C:/Documents and Settings/student/Desktop/ALU/ALU2/xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> Reading design: ALU2.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+     9.1) Device utilization summary
+     9.2) Partition Resource Summary
+     9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "ALU2.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "ALU2"
+Output Format                      : NGC
+Target Device                      : xc3s700a-4-fg484
+
+---- Source Options
+Top Module Name                    : ALU2
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : lut
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : YES
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : YES
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Library Search Order               : ALU2.lso
+Keep Hierarchy                     : NO
+Netlist Hierarchy                  : as_optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "ALU2.v" in library work
+Module <ALU2> compiled
+No errors in compilation
+Analysis of file <"ALU2.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <ALU2> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <ALU2>.
+Module <ALU2> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <ALU2>.
+    Related source file is "ALU2.v".
+    Found 32-bit addsub for signal <O$addsub0000>.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+Unit <ALU2> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 32-bit addsub                                         : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Loading device for application Rf_Device from file '3s700a.nph' in environment C:\Xilinx\10.1\ISE.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 32-bit addsub                                         : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <ALU2> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block ALU2, actual ratio is 1.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                           Partition Report                             *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : ALU2.ngr
+Top Level Output File Name         : ALU2
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : NO
+
+Design Statistics
+# IOs                              : 99
+
+Cell Usage :
+# BELS                             : 255
+#      INV                         : 17
+#      LUT2                        : 14
+#      LUT3                        : 52
+#      LUT4                        : 77
+#      MUXCY                       : 31
+#      MUXF5                       : 32
+#      XORCY                       : 32
+# IO Buffers                       : 99
+#      IBUF                        : 67
+#      OBUF                        : 32
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s700afg484-4 
+
+ Number of Slices:                       85  out of   5888     1%  
+ Number of 4 input LUTs:                160  out of  11776     1%  
+ Number of IOs:                          99
+ Number of bonded IOBs:                  99  out of    372    26%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+No clock signals found in this design
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: No path found
+   Maximum combinational path delay: 15.919ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 3579 / 32
+-------------------------------------------------------------------------
+Delay:               15.919ns (Levels of Logic = 39)
+  Source:            Sel<2> (PAD)
+  Destination:       O<31> (PAD)
+
+  Data Path: Sel<2> to O<31>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            65   0.849   1.416  Sel_2_IBUF (Sel_2_IBUF)
+     LUT3:I0->O           33   0.648   1.295  O_mux00002 (O_mux0000)
+     LUT3:I2->O            1   0.648   0.000  Maddsub_O_addsub0000_lut<0> (Maddsub_O_addsub0000_lut<0>)
+     MUXCY:S->O            1   0.632   0.000  Maddsub_O_addsub0000_cy<0> (Maddsub_O_addsub0000_cy<0>)
+     MUXCY:CI->O           1   0.065   0.000  Maddsub_O_addsub0000_cy<1> (Maddsub_O_addsub0000_cy<1>)
+     MUXCY:CI->O           1   0.065   0.000  Maddsub_O_addsub0000_cy<2> (Maddsub_O_addsub0000_cy<2>)
+     MUXCY:CI->O           1   0.065   0.000  Maddsub_O_addsub0000_cy<3> (Maddsub_O_addsub0000_cy<3>)
+     MUXCY:CI->O           1   0.065   0.000  Maddsub_O_addsub0000_cy<4> (Maddsub_O_addsub0000_cy<4>)
+     MUXCY:CI->O           1   0.065   0.000  Maddsub_O_addsub0000_cy<5> (Maddsub_O_addsub0000_cy<5>)
+     MUXCY:CI->O           1   0.065   0.000  Maddsub_O_addsub0000_cy<6> (Maddsub_O_addsub0000_cy<6>)
+     MUXCY:CI->O           1   0.065   0.000  Maddsub_O_addsub0000_cy<7> (Maddsub_O_addsub0000_cy<7>)
+     MUXCY:CI->O           1   0.065   0.000  Maddsub_O_addsub0000_cy<8> (Maddsub_O_addsub0000_cy<8>)
+     MUXCY:CI->O           1   0.065   0.000  Maddsub_O_addsub0000_cy<9> (Maddsub_O_addsub0000_cy<9>)
+     MUXCY:CI->O           1   0.065   0.000  Maddsub_O_addsub0000_cy<10> (Maddsub_O_addsub0000_cy<10>)
+     MUXCY:CI->O           1   0.065   0.000  Maddsub_O_addsub0000_cy<11> (Maddsub_O_addsub0000_cy<11>)
+     MUXCY:CI->O           1   0.065   0.000  Maddsub_O_addsub0000_cy<12> (Maddsub_O_addsub0000_cy<12>)
+     MUXCY:CI->O           1   0.065   0.000  Maddsub_O_addsub0000_cy<13> (Maddsub_O_addsub0000_cy<13>)
+     MUXCY:CI->O           1   0.065   0.000  Maddsub_O_addsub0000_cy<14> (Maddsub_O_addsub0000_cy<14>)
+     MUXCY:CI->O           1   0.065   0.000  Maddsub_O_addsub0000_cy<15> (Maddsub_O_addsub0000_cy<15>)
+     MUXCY:CI->O           1   0.065   0.000  Maddsub_O_addsub0000_cy<16> (Maddsub_O_addsub0000_cy<16>)
+     MUXCY:CI->O           1   0.065   0.000  Maddsub_O_addsub0000_cy<17> (Maddsub_O_addsub0000_cy<17>)
+     MUXCY:CI->O           1   0.065   0.000  Maddsub_O_addsub0000_cy<18> (Maddsub_O_addsub0000_cy<18>)
+     MUXCY:CI->O           1   0.065   0.000  Maddsub_O_addsub0000_cy<19> (Maddsub_O_addsub0000_cy<19>)
+     MUXCY:CI->O           1   0.065   0.000  Maddsub_O_addsub0000_cy<20> (Maddsub_O_addsub0000_cy<20>)
+     MUXCY:CI->O           1   0.065   0.000  Maddsub_O_addsub0000_cy<21> (Maddsub_O_addsub0000_cy<21>)
+     MUXCY:CI->O           1   0.065   0.000  Maddsub_O_addsub0000_cy<22> (Maddsub_O_addsub0000_cy<22>)
+     MUXCY:CI->O           1   0.065   0.000  Maddsub_O_addsub0000_cy<23> (Maddsub_O_addsub0000_cy<23>)
+     MUXCY:CI->O           1   0.065   0.000  Maddsub_O_addsub0000_cy<24> (Maddsub_O_addsub0000_cy<24>)
+     MUXCY:CI->O           1   0.065   0.000  Maddsub_O_addsub0000_cy<25> (Maddsub_O_addsub0000_cy<25>)
+     MUXCY:CI->O           1   0.065   0.000  Maddsub_O_addsub0000_cy<26> (Maddsub_O_addsub0000_cy<26>)
+     MUXCY:CI->O           1   0.065   0.000  Maddsub_O_addsub0000_cy<27> (Maddsub_O_addsub0000_cy<27>)
+     MUXCY:CI->O           1   0.065   0.000  Maddsub_O_addsub0000_cy<28> (Maddsub_O_addsub0000_cy<28>)
+     MUXCY:CI->O           1   0.065   0.000  Maddsub_O_addsub0000_cy<29> (Maddsub_O_addsub0000_cy<29>)
+     MUXCY:CI->O           0   0.065   0.000  Maddsub_O_addsub0000_cy<30> (Maddsub_O_addsub0000_cy<30>)
+     XORCY:CI->O           1   0.844   0.563  Maddsub_O_addsub0000_xor<31> (O_addsub0000<31>)
+     LUT2:I0->O            1   0.648   0.000  O<31>512 (O<31>512)
+     MUXF5:I0->O           1   0.276   0.563  O<31>51_f5 (O<31>51)
+     LUT4:I0->O            1   0.648   0.420  O<31>58 (O_31_OBUF)
+     OBUF:I->O                 4.520          O_31_OBUF (O<31>)
+    ----------------------------------------
+    Total                     15.919ns (11.663ns logic, 4.256ns route)
+                                       (73.3% logic, 26.7% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 3.00 secs
+Total CPU time to Xst completion: 2.55 secs
+ 
+--> 
+
+Total memory usage is 151540 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+

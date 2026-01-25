@@ -1,0 +1,3 @@
+verilog work "and32.vf"
+verilog work "and32_tb.tfw"
+verilog work "C:/Xilinx/10.1/ISE/verilog/src/glbl.v"

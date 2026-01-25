@@ -1,0 +1,82 @@
+Determining compilation order of HDL files
+Analyzing Verilog file ch4rled.vf
+Analyzing Verilog file cd4rled.vf
+Analyzing Verilog file time_cnt.vf
+Analyzing Verilog file time_cnt_tb.tfw
+Analyzing Verilog file C:/Xilinx/10.1/ISE/verilog/src/glbl.v
+Saving Verilog parse-tree work.M2_1B1_HXILINX_ch4rled into c:/documents and
+settings/all users/desktop/wtut_sc/isim/work/@m2_1@b1_@h@x@i@l@i@n@x_ch4rled.sdb
+Saving Verilog parse-tree work.FTRSLE_HXILINX_ch4rled into c:/documents and
+settings/all
+users/desktop/wtut_sc/isim/work/@f@t@r@s@l@e_@h@x@i@l@i@n@x_ch4rled.sdb
+Saving Verilog parse-tree work.M2_1_HXILINX_ch4rled into c:/documents and
+settings/all users/desktop/wtut_sc/isim/work/@m2_1_@h@x@i@l@i@n@x_ch4rled.sdb
+Saving Verilog parse-tree work.ch4rled into c:/documents and settings/all
+users/desktop/wtut_sc/isim/work/ch4rled.sdb
+Saving Verilog parse-tree work.M2_1B1_HXILINX_cd4rled into c:/documents and
+settings/all users/desktop/wtut_sc/isim/work/@m2_1@b1_@h@x@i@l@i@n@x_cd4rled.sdb
+Saving Verilog parse-tree work.FTRSLE_HXILINX_cd4rled into c:/documents and
+settings/all
+users/desktop/wtut_sc/isim/work/@f@t@r@s@l@e_@h@x@i@l@i@n@x_cd4rled.sdb
+Saving Verilog parse-tree work.M2_1_HXILINX_cd4rled into c:/documents and
+settings/all users/desktop/wtut_sc/isim/work/@m2_1_@h@x@i@l@i@n@x_cd4rled.sdb
+Saving Verilog parse-tree work.cd4rled into c:/documents and settings/all
+users/desktop/wtut_sc/isim/work/cd4rled.sdb
+Saving Verilog parse-tree work.time_cnt into c:/documents and settings/all
+users/desktop/wtut_sc/isim/work/time_cnt.sdb
+Saving Verilog parse-tree work.time_cnt_tb into c:/documents and settings/all
+users/desktop/wtut_sc/isim/work/time_cnt_tb.sdb
+Saving Verilog parse-tree work.glbl into c:/documents and settings/all
+users/desktop/wtut_sc/isim/work/glbl.sdb
+Starting static elaboration
+Restoring Verilog parse-tree unisims_ver.VCC from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.AND2B2 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.AND4B4 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.AND3 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.AND3B3 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.AND2 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.OR2 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.AND4B2 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.AND2B1 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.GND from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.AND5 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Completed static elaboration
+Fuse Memory Usage: 54152 Kb
+Fuse CPU Usage: 155 ms
+Compiling module glbl
+Compiling module M2_1_HXILINX_cd4rled
+Compiling module M2_1B1_HXILINX_cd4rled
+Compiling module VCC
+Compiling module AND2B2
+Compiling module AND4B4
+Compiling module AND3
+Compiling module AND3B3
+Compiling module AND2
+Compiling module OR2
+Compiling module AND4B2
+Compiling module FTRSLE_HXILINX_cd4rled
+Compiling module AND2B1
+Compiling module GND
+Compiling module cd4rled
+Compiling module AND5
+Compiling module M2_1_HXILINX_ch4rled
+Compiling module M2_1B1_HXILINX_ch4rled
+Compiling module FTRSLE_HXILINX_ch4rled
+Compiling module ch4rled
+Compiling module time_cnt
+Compiling module time_cnt_tb
+Compiled 22 Verilog Units
+Built simulation executable time_cnt_tb_isim_beh.exe
+Fuse Memory Usage: 55436 Kb
+Fuse CPU Usage: 296 ms

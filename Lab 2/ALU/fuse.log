@@ -1,0 +1,82 @@
+Determining compilation order of HDL files
+Analyzing Verilog file adder_1b.vf
+Analyzing Verilog file adder_8bit.vf
+Analyzing Verilog file shifter_8bit.vf
+Analyzing Verilog file mux8_8bit.vf
+Analyzing Verilog file adder_32bit.vf
+Analyzing Verilog file shifter_32bit.vf
+Analyzing Verilog file or32.vf
+Analyzing Verilog file mux8_32bit.vf
+Analyzing Verilog file and32.vf
+Analyzing Verilog file add_sub_32bit.vf
+Analyzing Verilog file ALU.vf
+Analyzing Verilog file ALU_tb.tfw
+Analyzing Verilog file C:/Xilinx/10.1/ISE/verilog/src/glbl.v
+Saving Verilog parse-tree work.adder_1b into c:/documents and
+settings/student/desktop/alu/isim/work/adder_1b.sdb
+Saving Verilog parse-tree work.adder_8bit into c:/documents and
+settings/student/desktop/alu/isim/work/adder_8bit.sdb
+Saving Verilog parse-tree work.M2_1_HXILINX_shifter_8bit into c:/documents and
+settings/student/desktop/alu/isim/work/@m2_1_@h@x@i@l@i@n@x_shifter_8bit.sdb
+Saving Verilog parse-tree work.shifter_8bit into c:/documents and
+settings/student/desktop/alu/isim/work/shifter_8bit.sdb
+Saving Verilog parse-tree work.M8_1E_HXILINX_mux8_8bit into c:/documents and
+settings/student/desktop/alu/isim/work/@m8_1@e_@h@x@i@l@i@n@x_mux8_8bit.sdb
+Saving Verilog parse-tree work.mux8_8bit into c:/documents and
+settings/student/desktop/alu/isim/work/mux8_8bit.sdb
+Saving Verilog parse-tree work.adder_32bit into c:/documents and
+settings/student/desktop/alu/isim/work/adder_32bit.sdb
+Saving Verilog parse-tree work.shifter_32bit into c:/documents and
+settings/student/desktop/alu/isim/work/shifter_32bit.sdb
+Saving Verilog parse-tree work.or32 into c:/documents and
+settings/student/desktop/alu/isim/work/or32.sdb
+Saving Verilog parse-tree work.mux8_32bit into c:/documents and
+settings/student/desktop/alu/isim/work/mux8_32bit.sdb
+Saving Verilog parse-tree work.and32 into c:/documents and
+settings/student/desktop/alu/isim/work/and32.sdb
+Saving Verilog parse-tree work.add_sub_32bit into c:/documents and
+settings/student/desktop/alu/isim/work/add_sub_32bit.sdb
+Saving Verilog parse-tree work.ALU into c:/documents and
+settings/student/desktop/alu/isim/work/@a@l@u.sdb
+Saving Verilog parse-tree work.ALU_tb into c:/documents and
+settings/student/desktop/alu/isim/work/@a@l@u_tb.sdb
+Saving Verilog parse-tree work.glbl into c:/documents and
+settings/student/desktop/alu/isim/work/glbl.sdb
+Starting static elaboration
+Restoring Verilog parse-tree unisims_ver.XOR2 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.AND2 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.OR3 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.OR2 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.VCC from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Completed static elaboration
+Fuse Memory Usage: 54152 Kb
+Fuse CPU Usage: 249 ms
+Compiling module glbl
+Compiling module XOR2
+Compiling module AND2
+Compiling module OR3
+Compiling module adder_1b
+Compiling module adder_8bit
+Compiling module adder_32bit
+Compiling module add_sub_32bit
+Compiling module M2_1_HXILINX_shifter_8bit
+Compiling module shifter_8bit
+Compiling module shifter_32bit
+Compiling module and32
+Compiling module OR2
+Compiling module or32
+Compiling module VCC
+Compiling module M8_1E_HXILINX_mux8_8bit
+Compiling module mux8_8bit
+Compiling module mux8_32bit
+Compiling module ALU
+Compiling module ALU_tb
+Compiled 20 Verilog Units
+Built simulation executable ALU_tb_isim_beh.exe
+Fuse Memory Usage: 55436 Kb
+Fuse CPU Usage: 343 ms

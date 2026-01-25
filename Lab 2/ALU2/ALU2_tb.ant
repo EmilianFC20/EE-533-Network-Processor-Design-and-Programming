@@ -1,0 +1,91 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2003 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1
+//  \   \         Application : ISE
+//  /   /         Filename : ALU2_tb.ant
+// /___/   /\     Timestamp : Sat Jan 24 21:19:34 2026
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: ALU2_tb
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module ALU2_tb;
+    reg [31:0] A = 32'b00000000000000000000000000000000;
+    reg [31:0] B = 32'b00000000000000000000000000000000;
+    reg [2:0] Sel = 3'b000;
+    wire [31:0] O;
+
+
+    ALU2 UUT (
+        .A(A),
+        .B(B),
+        .Sel(Sel),
+        .O(O));
+
+    integer TX_FILE = 0;
+    integer TX_ERROR = 0;
+    
+    initial begin    // Annotation process
+        #0;
+        ANNOTATE_O;
+        forever begin
+            #50;
+            ANNOTATE_O;
+            #50;
+        end
+    end
+
+    initial begin  // Open the annotations file...
+        TX_FILE = $fopen("C:\\Documents and Settings\\student\\Desktop\\ALU\\ALU2\\ALU2_tb.ano");
+        #1000 // Final time:  1000 ns
+        $display("Success! Annotation Simulation Complete.");
+        $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
+        $fclose(TX_FILE);
+        $finish;
+    end
+
+    initial begin
+        // -------------  Current Time:  100ns
+        #100;
+        A = 32'b00000000000000000000000010100001;
+        B = 32'b00000000000000000000000000110001;
+        // -------------------------------------
+        // -------------  Current Time:  200ns
+        #100;
+        Sel = 3'b001;
+        // -------------------------------------
+        // -------------  Current Time:  300ns
+        #100;
+        A = 32'b00000000000000000000000100000000;
+        Sel = 3'b010;
+        // -------------------------------------
+        // -------------  Current Time:  400ns
+        #100;
+        A = 32'b11111111111111110000000000000000;
+        B = 32'b11111111111111111111111111111111;
+        Sel = 3'b011;
+        // -------------------------------------
+        // -------------  Current Time:  500ns
+        #100;
+        Sel = 3'b100;
+    end
+
+    task ANNOTATE_O;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,O,%b]", $time, O);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+endmodule
+

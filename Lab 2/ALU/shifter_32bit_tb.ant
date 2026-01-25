@@ -1,0 +1,82 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2003 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1
+//  \   \         Application : ISE
+//  /   /         Filename : shifter_32bit_tb.ant
+// /___/   /\     Timestamp : Sat Jan 24 16:06:27 2026
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: shifter_32bit_tb
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module shifter_32bit_tb;
+    reg Sel = 1'b0;
+    reg [31:0] X = 32'b00000000000000000000000000000000;
+    wire [31:0] Y;
+
+
+    shifter_32bit UUT (
+        .Sel(Sel),
+        .X(X),
+        .Y(Y));
+
+    integer TX_FILE = 0;
+    integer TX_ERROR = 0;
+    
+    initial begin    // Annotation process
+        #0;
+        ANNOTATE_Y;
+        forever begin
+            #50;
+            ANNOTATE_Y;
+            #50;
+        end
+    end
+
+    initial begin  // Open the annotations file...
+        TX_FILE = $fopen("C:\\Documents and Settings\\student\\Desktop\\ALU\\shifter_32bit_tb.ano");
+        #1000 // Final time:  1000 ns
+        $display("Success! Annotation Simulation Complete.");
+        $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
+        $fclose(TX_FILE);
+        $finish;
+    end
+
+    initial begin
+        // -------------  Current Time:  200ns
+        #200;
+        X = 32'b00000000000000000000000000000001;
+        // -------------------------------------
+        // -------------  Current Time:  300ns
+        #100;
+        Sel = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  400ns
+        #100;
+        Sel = 1'b0;
+        X = 32'b00000000000000000000100000000000;
+        // -------------------------------------
+        // -------------  Current Time:  500ns
+        #100;
+        Sel = 1'b1;
+    end
+
+    task ANNOTATE_Y;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,Y,%b]", $time, Y);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+endmodule
+

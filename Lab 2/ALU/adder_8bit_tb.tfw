@@ -1,0 +1,68 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2003 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1
+//  \   \         Application : ISE
+//  /   /         Filename : adder_8bit_tb.tfw
+// /___/   /\     Timestamp : Sat Jan 24 11:04:21 2026
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: adder_8bit_tb
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module adder_8bit_tb;
+    reg [7:0] A = 8'b00000000;
+    reg [7:0] B = 8'b00000000;
+    reg Cin = 1'b0;
+    reg CLK = 1'b0;
+    wire Cout;
+    wire [7:0] S;
+
+    parameter PERIOD = 20;
+    parameter real DUTY_CYCLE = 0.5;
+    parameter OFFSET = 0;
+
+    initial    // Clock process for CLK
+    begin
+        #OFFSET;
+        forever
+        begin
+            CLK = 1'b0;
+            #(PERIOD-(PERIOD*DUTY_CYCLE)) CLK = 1'b1;
+            #(PERIOD*DUTY_CYCLE);
+        end
+    end
+
+    adder_8bit UUT (
+        .A(A),
+        .B(B),
+        .Cin(Cin),
+        .CLK(CLK),
+        .Cout(Cout),
+        .S(S));
+
+    initial begin
+        // -------------  Current Time:  105ns
+        #105;
+        A = 8'b00000100;
+        // -------------------------------------
+        // -------------  Current Time:  145ns
+        #40;
+        B = 8'b00001010;
+        // -------------------------------------
+        // -------------  Current Time:  185ns
+        #40;
+        B = 8'b00011100;
+        // -------------------------------------
+    end
+
+endmodule
+

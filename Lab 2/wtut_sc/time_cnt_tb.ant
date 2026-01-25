@@ -1,0 +1,149 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2003 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1
+//  \   \         Application : ISE
+//  /   /         Filename : time_cnt_tb.ant
+// /___/   /\     Timestamp : Fri Jan 23 22:29:14 2026
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: time_cnt_tb
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module time_cnt_tb;
+    reg ce = 1'b0;
+    reg clk = 1'b0;
+    reg clr = 1'b0;
+    reg load = 1'b0;
+    reg [19:0] q = 20'b00000000000000000000;
+    reg up = 1'b0;
+    wire [3:0] hundredths;
+    wire [3:0] minutes;
+    wire [3:0] sec_lsb;
+    wire [3:0] sec_msb;
+    wire [3:0] tenths;
+
+    parameter PERIOD = 20;
+    parameter real DUTY_CYCLE = 0.5;
+    parameter OFFSET = 0;
+
+    initial    // Clock process for clk
+    begin
+        #OFFSET;
+        forever
+        begin
+            clk = 1'b0;
+            #(PERIOD-(PERIOD*DUTY_CYCLE)) clk = 1'b1;
+            #(PERIOD*DUTY_CYCLE);
+        end
+    end
+
+    time_cnt UUT (
+        .ce(ce),
+        .clk(clk),
+        .clr(clr),
+        .load(load),
+        .q(q),
+        .up(up),
+        .hundredths(hundredths),
+        .minutes(minutes),
+        .sec_lsb(sec_lsb),
+        .sec_msb(sec_msb),
+        .tenths(tenths));
+
+    integer TX_FILE = 0;
+    integer TX_ERROR = 0;
+    
+    initial begin    // Annotation process for clock clk
+        #0;
+        ANNOTATE_hundredths;
+        ANNOTATE_minutes;
+        ANNOTATE_sec_lsb;
+        ANNOTATE_sec_msb;
+        ANNOTATE_tenths;
+        #OFFSET;
+        forever begin
+            #15;
+            ANNOTATE_hundredths;
+            ANNOTATE_minutes;
+            ANNOTATE_sec_lsb;
+            ANNOTATE_sec_msb;
+            ANNOTATE_tenths;
+            #5;
+        end
+    end
+
+    initial begin  // Open the annotations file...
+        TX_FILE = $fopen("C:\\Documents and Settings\\All Users\\Desktop\\wtut_sc\\time_cnt_tb.ano");
+        #3020 // Final time:  3020 ns
+        $display("Success! Annotation Simulation Complete.");
+        $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
+        $fclose(TX_FILE);
+        $finish;
+    end
+
+    initial begin
+        // -------------  Current Time:  105ns
+        #105;
+        ce = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  145ns
+        #40;
+        clr = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  225ns
+        #80;
+        clr = 1'b0;
+        // -------------------------------------
+    end
+
+    task ANNOTATE_hundredths;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,hundredths,%b]", $time, hundredths);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_minutes;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,minutes,%b]", $time, minutes);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_sec_lsb;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,sec_lsb,%b]", $time, sec_lsb);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_sec_msb;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,sec_msb,%b]", $time, sec_msb);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_tenths;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,tenths,%b]", $time, tenths);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+endmodule
+

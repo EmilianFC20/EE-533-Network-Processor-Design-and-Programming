@@ -1,0 +1,3 @@
+MODULE add_sub_32bit
+	SUBMODULE adder_32bit
+		INSTANCE XLXI_1

@@ -1,0 +1,38 @@
+Command line:
+   ./ALU_tb_isim_beh.exe
+     -intstyle  ise
+     -ipchost  localhost
+     -ipcport  1080
+
+Sat Jan 24 20:10:39 2026
+
+Total Line Count : 669
+
+ Elaboration Time: 0 sec
+
+ Current Memory Usage: 143.516 Meg
+
+ Total Signals          : 1944
+ Total Nets             : 556
+ Total Signal Drivers   : 391
+ Total Blocks           : 438
+ Total Primitive Blocks : 386
+ Total Processes        : 458
+ Total Traceable Variables  : 84
+ Total Scalar Nets and Variables : 766
+ntrace select -o on -n /ALU_tb/O 
+ntrace select -o on -n /ALU_tb/A 
+ntrace select -o on -n /ALU_tb/B 
+ntrace select -o on -n /ALU_tb/Sel 
+ntrace start 
+isimrun 1000 ns 
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+isimrun 
+
+ Total Simulation Time: 0.03125 sec
+
+ Current Memory Usage: 154.067 Meg
+
+Sat Jan 24 20:19:07 2026
+

@@ -1,0 +1,106 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2003 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1
+//  \   \         Application : ISE
+//  /   /         Filename : add_sub_32bit_tb.ant
+// /___/   /\     Timestamp : Sat Jan 24 16:49:40 2026
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: add_sub_32bit_tb
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module add_sub_32bit_tb;
+    reg [31:0] A = 32'b00000000000000000000000000000000;
+    reg A_S = 1'b0;
+    reg [31:0] B = 32'b00000000000000000000000000000000;
+    wire Cout;
+    wire [31:0] S;
+
+
+    add_sub_32bit UUT (
+        .A(A),
+        .A_S(A_S),
+        .B(B),
+        .Cout(Cout),
+        .S(S));
+
+    integer TX_FILE = 0;
+    integer TX_ERROR = 0;
+    
+    initial begin    // Annotation process
+        #0;
+        ANNOTATE_Cout;
+        ANNOTATE_S;
+        forever begin
+            #50;
+            ANNOTATE_Cout;
+            ANNOTATE_S;
+            #50;
+        end
+    end
+
+    initial begin  // Open the annotations file...
+        TX_FILE = $fopen("C:\\Documents and Settings\\student\\Desktop\\ALU\\add_sub_32bit_tb.ano");
+        #1000 // Final time:  1000 ns
+        $display("Success! Annotation Simulation Complete.");
+        $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
+        $fclose(TX_FILE);
+        $finish;
+    end
+
+    initial begin
+        // -------------  Current Time:  100ns
+        #100;
+        A = 32'b00000000000000000000000000011110;
+        B = 32'b00000000000000000000000000010100;
+        // -------------------------------------
+        // -------------  Current Time:  200ns
+        #100;
+        A_S = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  300ns
+        #100;
+        A = 32'b00000000000000001011111101100011;
+        B = 32'b00000000000000000001001110000011;
+        // -------------------------------------
+        // -------------  Current Time:  400ns
+        #100;
+        A_S = 1'b0;
+        // -------------------------------------
+        // -------------  Current Time:  500ns
+        #100;
+        A = 32'b00000000000000000000000000000001;
+        B = 32'b00000000000000000000000001111000;
+        // -------------------------------------
+        // -------------  Current Time:  600ns
+        #100;
+        A_S = 1'b1;
+    end
+
+    task ANNOTATE_Cout;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,Cout,%b]", $time, Cout);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_S;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,S,%b]", $time, S);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+endmodule
+

@@ -1,0 +1,3 @@
+MODULE adder_8bit_tb
+SUBMODULE adder_8bit
+INSTANCE UUT

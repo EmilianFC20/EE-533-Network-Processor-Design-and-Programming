@@ -1,0 +1,3 @@
+MODULE sadder_32bit_tb
+SUBMODULE sadder_32bit
+INSTANCE UUT

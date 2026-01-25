@@ -1,0 +1,7 @@
+verilog work "adder_1b.vf"
+verilog work "adder_8bit.vf"
+verilog work "ifd32.vf"
+verilog work "adder_32bit.vf"
+verilog work "sadder_32bit.vf"
+verilog work "sadder_32bit_tb.tfw"
+verilog work "C:/Xilinx/10.1/ISE/verilog/src/glbl.v"

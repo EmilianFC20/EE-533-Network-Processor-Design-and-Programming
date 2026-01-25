@@ -1,0 +1,124 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2003 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1
+//  \   \         Application : ISE
+//  /   /         Filename : sadder_32bit_tb.ant
+// /___/   /\     Timestamp : Sat Jan 24 13:48:11 2026
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: sadder_32bit_tb
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module sadder_32bit_tb;
+    reg [31:0] A = 32'b00000000000000000000000000000000;
+    reg [31:0] B = 32'b00000000000000000000000000000000;
+    reg Cin = 1'b0;
+    reg CLK = 1'b0;
+    wire Cout;
+    wire [31:0] S;
+
+    parameter PERIOD = 20;
+    parameter real DUTY_CYCLE = 0.5;
+    parameter OFFSET = 0;
+
+    initial    // Clock process for CLK
+    begin
+        #OFFSET;
+        forever
+        begin
+            CLK = 1'b0;
+            #(PERIOD-(PERIOD*DUTY_CYCLE)) CLK = 1'b1;
+            #(PERIOD*DUTY_CYCLE);
+        end
+    end
+
+    sadder_32bit UUT (
+        .A(A),
+        .B(B),
+        .Cin(Cin),
+        .CLK(CLK),
+        .Cout(Cout),
+        .S(S));
+
+    integer TX_FILE = 0;
+    integer TX_ERROR = 0;
+    
+    initial begin    // Annotation process for clock CLK
+        #0;
+        ANNOTATE_Cout;
+        ANNOTATE_S;
+        #OFFSET;
+        forever begin
+            #15;
+            ANNOTATE_Cout;
+            ANNOTATE_S;
+            #5;
+        end
+    end
+
+    initial begin  // Open the annotations file...
+        TX_FILE = $fopen("C:\\Documents and Settings\\student\\Desktop\\ALU\\sadder_32bit_tb.ano");
+        #520 // Final time:  520 ns
+        $display("Success! Annotation Simulation Complete.");
+        $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
+        $fclose(TX_FILE);
+        $finish;
+    end
+
+    initial begin
+        // -------------  Current Time:  105ns
+        #105;
+        A = 32'b00000000000000000000000010010110;
+        B = 32'b00000000000000000000000101011110;
+        // -------------------------------------
+        // -------------  Current Time:  125ns
+        #20;
+        Cin = 1'b1;
+        A = 32'b00000000000000001011000010011111;
+        B = 32'b00000000000000000000111110100000;
+        // -------------------------------------
+        // -------------  Current Time:  145ns
+        #20;
+        A = 32'b00000000000000011000011010100000;
+        B = 32'b00000000000000000100111000100000;
+        // -------------------------------------
+        // -------------  Current Time:  165ns
+        #20;
+        A = 32'b00000000000111101000010001111111;
+        B = 32'b00000000000000000000000000000000;
+        // -------------------------------------
+        // -------------  Current Time:  185ns
+        #20;
+        Cin = 1'b0;
+        A = 32'b00000000000000000000000000000001;
+        B = 32'b00000000000000000100011001010000;
+        // -------------------------------------
+    end
+
+    task ANNOTATE_Cout;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,Cout,%b]", $time, Cout);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_S;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,S,%b]", $time, S);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+endmodule
+

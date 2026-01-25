@@ -1,0 +1,127 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2003 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1
+//  \   \         Application : ISE
+//  /   /         Filename : adder_1b_tb.ant
+// /___/   /\     Timestamp : Fri Jan 23 23:52:22 2026
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: adder_1b_tb
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module adder_1b_tb;
+    reg A = 1'b0;
+    reg B = 1'b0;
+    reg C = 1'b0;
+    reg CLK = 1'b0;
+    wire CO;
+    wire S;
+
+    parameter PERIOD = 20;
+    parameter real DUTY_CYCLE = 0.5;
+    parameter OFFSET = 0;
+
+    initial    // Clock process for CLK
+    begin
+        #OFFSET;
+        forever
+        begin
+            CLK = 1'b0;
+            #(PERIOD-(PERIOD*DUTY_CYCLE)) CLK = 1'b1;
+            #(PERIOD*DUTY_CYCLE);
+        end
+    end
+
+    adder_1b UUT (
+        .A(A),
+        .B(B),
+        .C(C),
+        .CLK(CLK),
+        .CO(CO),
+        .S(S));
+
+    integer TX_FILE = 0;
+    integer TX_ERROR = 0;
+    
+    initial begin    // Annotation process for clock CLK
+        #0;
+        ANNOTATE_CO;
+        ANNOTATE_S;
+        #OFFSET;
+        forever begin
+            #15;
+            ANNOTATE_CO;
+            ANNOTATE_S;
+            #5;
+        end
+    end
+
+    initial begin  // Open the annotations file...
+        TX_FILE = $fopen("C:\\Documents and Settings\\student\\Desktop\\ALU\\adder_1b_tb.ano");
+        #1020 // Final time:  1020 ns
+        $display("Success! Annotation Simulation Complete.");
+        $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
+        $fclose(TX_FILE);
+        $finish;
+    end
+
+    initial begin
+        // -------------  Current Time:  105ns
+        #105;
+        A = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  145ns
+        #40;
+        B = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  185ns
+        #40;
+        B = 1'b0;
+        C = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  225ns
+        #40;
+        A = 1'b0;
+        // -------------------------------------
+        // -------------  Current Time:  265ns
+        #40;
+        B = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  305ns
+        #40;
+        C = 1'b0;
+        // -------------------------------------
+        // -------------  Current Time:  345ns
+        #40;
+        A = 1'b1;
+        C = 1'b1;
+        // -------------------------------------
+    end
+
+    task ANNOTATE_CO;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,CO,%b]", $time, CO);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_S;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,S,%b]", $time, S);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+endmodule
+
