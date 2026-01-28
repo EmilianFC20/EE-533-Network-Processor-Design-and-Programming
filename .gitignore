@@ -3,6 +3,7 @@ Class/
 *.pptx
 *.pdf
 *.docx
+*.csv
 *.png
 GEMINI.md
 Project.md
