@@ -6,7 +6,6 @@
 #include <sys/stat.h>
 #include <time.h>
 
-// Defines must be before includes
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 #define STB_IMAGE_WRITE_IMPLEMENTATION
@@ -24,9 +23,6 @@
         } \
     } while (0)
 
-/**
- * @brief CUDA kernel to apply an N x N convolution filter to an image.
- */
 __global__ void convolution_kernel(
     uint32_t* d_output,
     const uint32_t* d_input,
@@ -61,9 +57,6 @@ __global__ void convolution_kernel(
     }
 }
 
-/**
- * @brief Host function to manage GPU memory and launch the convolution kernel.
- */
 void apply_convolution_gpu(
     uint32_t* h_output,
     const uint32_t* h_input,
@@ -123,27 +116,44 @@ float* generate_box_blur_filter(int N) {
     return filter;
 }
 
-float* generate_sharpen_filter() {
-    float* filter = (float*)malloc(3 * 3 * sizeof(float));
+float* generate_sharpen_filter(int N) {
+    float* filter = (float*)calloc(N * N, sizeof(float));
     if (!filter) return NULL;
-    float values[] = { 0, -1, 0, -1, 5, -1, 0, -1, 0 };
-    memcpy(filter, values, 9 * sizeof(float));
+    if (N % 2 == 0) return filter; // Return empty for even N
+
+    int center = N / 2;
+    filter[(center - 1) * N + center] = -1;
+    filter[center * N + (center - 1)] = -1;
+    filter[center * N + center] = 5;
+    filter[center * N + (center + 1)] = -1;
+    filter[(center + 1) * N + center] = -1;
+
     return filter;
 }
 
-float* generate_laplacian_filter() {
-    float* filter = (float*)malloc(3 * 3 * sizeof(float));
+float* generate_laplacian_filter(int N) {
+    float* filter = (float*)calloc(N * N, sizeof(float));
     if (!filter) return NULL;
-    float values[] = { -1, -1, -1, -1, 8, -1, -1, -1, -1 };
-    memcpy(filter, values, 9 * sizeof(float));
+    if (N % 2 == 0) return filter; // Return empty for even N
+
+    int center = N / 2;
+    filter[(center-1)*N + (center-1)] = -1; filter[(center-1)*N + center] = -1; filter[(center-1)*N + (center+1)] = -1;
+    filter[center*N + (center-1)]     = -1; filter[center*N + center]     =  8; filter[center*N + (center+1)]     = -1;
+    filter[(center+1)*N + (center-1)] = -1; filter[(center+1)*N + center] = -1; filter[(center+1)*N + (center+1)] = -1;
+
     return filter;
 }
 
-float* generate_sobel_x_filter() {
-    float* filter = (float*)malloc(3 * 3 * sizeof(float));
+float* generate_sobel_x_filter(int N) {
+    float* filter = (float*)calloc(N * N, sizeof(float));
     if (!filter) return NULL;
-    float values[] = { -1, 0, 1, -2, 0, 2, -1, 0, 1 };
-    memcpy(filter, values, 9 * sizeof(float));
+    if (N % 2 == 0) return filter; // Return empty for even N
+
+    int center = N / 2;
+    filter[(center - 1) * N + (center - 1)] = -1; filter[(center - 1) * N + (center + 1)] = 1;
+    filter[center * N + (center - 1)]       = -2; filter[center * N + (center + 1)]       = 2;
+    filter[(center + 1) * N + (center - 1)] = -1; filter[(center + 1) * N + (center + 1)] = 1;
+
     return filter;
 }
 
@@ -154,10 +164,13 @@ int main() {
         "Convolution Images/image3.png"
     };
     const int num_images = sizeof(image_paths) / sizeof(image_paths[0]);
-    int blur_filter_sizes[] = {3, 5, 7};
-    const int num_blur_sizes = sizeof(blur_filter_sizes) / sizeof(blur_filter_sizes[0]);
+    
+    int filter_sizes[] = {3, 5, 7};
+    const int num_filter_sizes = sizeof(filter_sizes) / sizeof(filter_sizes[0]);
+    
+    const char* filter_types[] = {"blur", "sharpen", "laplacian", "sobel_x"};
+    const int num_filter_types = sizeof(filter_types) / sizeof(filter_types[0]);
 
-    mkdir("Convolution Images", 0777); 
     FILE* csv_file = fopen("performance_results_gpu.csv", "w");
     if (!csv_file) {
         perror("Failed to open performance_results_gpu.csv");
@@ -187,47 +200,25 @@ int main() {
             continue;
         }
         
-        const char* filter_types[] = {"blur", "sharpen", "laplacian", "sobel_x"};
-        for (int f_idx = 0; f_idx < 4; ++f_idx) {
+        for (int f_idx = 0; f_idx < num_filter_types; ++f_idx) {
             const char* filter_type = filter_types[f_idx];
-            if (strcmp(filter_type, "blur") == 0) {
-                for (int j = 0; j < num_blur_sizes; ++j) {
-                    int N = blur_filter_sizes[j];
-                    float* filter = generate_box_blur_filter(N);
-                    if (filter) {
-                        cudaEvent_t start, stop;
-                        cudaEventCreate(&start);
-                        cudaEventCreate(&stop);
-                        cudaEventRecord(start);
-                        apply_convolution_gpu(img_32bit_out, img_32bit_in, width, height, filter, N);
-                        cudaEventRecord(stop);
-                        cudaEventSynchronize(stop);
-                        float time_ms;
-                        cudaEventElapsedTime(&time_ms, start, stop);
-                        fprintf(csv_file, "%s,%dx%d,%s,%d,%.6f\n", image_path, width, height, filter_type, N, time_ms);
-
-                        for(int k=0; k < width * height; ++k) img_8bit_out[k] = (unsigned char)(img_32bit_out[k] > 255 ? 255 : img_32bit_out[k]);
-                        char filename[256];
-                        sprintf(filename, "Convolution Images/output_gpu_%dx%d_%s_%dx%d.png", width, height, filter_type, N, N);
-                        stbi_write_png(filename, width, height, 1, img_8bit_out, width);
-                        free(filter);
-                        cudaEventDestroy(start);
-                        cudaEventDestroy(stop);
-                    }
-                }
-            } else {
-                int N = 3;
+            for (int s_idx = 0; s_idx < num_filter_sizes; ++s_idx) {
+                int N = filter_sizes[s_idx];
+                
                 float* filter = NULL;
-                if(strcmp(filter_type, "sharpen") == 0) filter = generate_sharpen_filter();
-                else if(strcmp(filter_type, "laplacian") == 0) filter = generate_laplacian_filter();
-                else if(strcmp(filter_type, "sobel_x") == 0) filter = generate_sobel_x_filter();
+                if(strcmp(filter_type, "blur") == 0) filter = generate_box_blur_filter(N);
+                else if(strcmp(filter_type, "sharpen") == 0) filter = generate_sharpen_filter(N);
+                else if(strcmp(filter_type, "laplacian") == 0) filter = generate_laplacian_filter(N);
+                else if(strcmp(filter_type, "sobel_x") == 0) filter = generate_sobel_x_filter(N);
                 
                 if (filter) {
                     cudaEvent_t start, stop;
                     cudaEventCreate(&start);
                     cudaEventCreate(&stop);
                     cudaEventRecord(start);
+                    
                     apply_convolution_gpu(img_32bit_out, img_32bit_in, width, height, filter, N);
+                    
                     cudaEventRecord(stop);
                     cudaEventSynchronize(stop);
                     float time_ms;
@@ -238,6 +229,7 @@ int main() {
                     char filename[256];
                     sprintf(filename, "Convolution Images/output_gpu_%dx%d_%s_%dx%d.png", width, height, filter_type, N, N);
                     stbi_write_png(filename, width, height, 1, img_8bit_out, width);
+                    
                     free(filter);
                     cudaEventDestroy(start);
                     cudaEventDestroy(stop);
