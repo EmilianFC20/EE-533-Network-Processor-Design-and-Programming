@@ -1,0 +1,126 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2003 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1
+//  \   \         Application : ISE
+//  /   /         Filename : dropfifo_tb.ant
+// /___/   /\     Timestamp : Fri Jan 30 18:01:21 2026
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: dropfifo_tb
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module dropfifo_tb;
+    reg clk = 1'b0;
+    reg drop_pkt = 1'b0;
+    reg fiforead = 1'b0;
+    reg fifowrite = 1'b0;
+    reg firstword = 1'b0;
+    reg [71:0] in_fifo = 72'b000000000000000000000000000000000000000000000000000000000000000000000000;
+    reg lastword = 1'b0;
+    reg rst = 1'b0;
+    wire [71:0] out_fifo;
+    wire valid_data;
+
+    parameter PERIOD = 200;
+    parameter real DUTY_CYCLE = 0.5;
+    parameter OFFSET = 100;
+
+    initial    // Clock process for clk
+    begin
+        #OFFSET;
+        forever
+        begin
+            clk = 1'b0;
+            #(PERIOD-(PERIOD*DUTY_CYCLE)) clk = 1'b1;
+            #(PERIOD*DUTY_CYCLE);
+        end
+    end
+
+    dropfifo UUT (
+        .clk(clk),
+        .drop_pkt(drop_pkt),
+        .fiforead(fiforead),
+        .fifowrite(fifowrite),
+        .firstword(firstword),
+        .in_fifo(in_fifo),
+        .lastword(lastword),
+        .rst(rst),
+        .out_fifo(out_fifo),
+        .valid_data(valid_data));
+
+    integer TX_FILE = 0;
+    integer TX_ERROR = 0;
+    
+    initial begin    // Annotation process for clock clk
+        #0;
+        ANNOTATE_out_fifo;
+        ANNOTATE_valid_data;
+        #OFFSET;
+        forever begin
+            #115;
+            ANNOTATE_out_fifo;
+            ANNOTATE_valid_data;
+            #85;
+        end
+    end
+
+    initial begin  // Open the annotations file...
+        TX_FILE = $fopen("C:\\Documents and Settings\\student\\Desktop\\mini_IDS\\dropfifo_tb.ano");
+        #1200 // Final time:  1200 ns
+        $display("Success! Annotation Simulation Complete.");
+        $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
+        $fclose(TX_FILE);
+        $finish;
+    end
+
+    initial begin
+        // -------------  Current Time:  100ns
+        #100;
+        rst = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  185ns
+        #85;
+        fiforead = 1'b1;
+        fifowrite = 1'b1;
+        firstword = 1'b1;
+        rst = 1'b0;
+        in_fifo = 72'b000000000000000000000000000000000000000000000000000000000000000000000001;
+        // -------------------------------------
+        // -------------  Current Time:  385ns
+        #200;
+        firstword = 1'b0;
+        in_fifo = 72'b000100010001000100000001000000010000000100000001000000010000000100000001;
+        // -------------------------------------
+        // -------------  Current Time:  785ns
+        #400;
+        lastword = 1'b1;
+        // -------------------------------------
+    end
+
+    task ANNOTATE_out_fifo;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,out_fifo,%b]", $time, out_fifo);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_valid_data;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,valid_data,%b]", $time, valid_data);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+endmodule
+

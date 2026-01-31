@@ -7,18 +7,14 @@ BEGIN SCHEMATIC
     END ATTR
     BEGIN NETLIST
         SIGNAL clk
-        BEGIN SIGNAL XLXN_2
-        END SIGNAL
         SIGNAL pipe1(71:0)
         SIGNAL ce
         SIGNAL pipe0(71:0)
-        SIGNAL hwregA(62:0)
+        SIGNAL hwregA(63:0)
         SIGNAL XLXN_8(111:0)
-        SIGNAL XLXN_9
         SIGNAL pipe0(47:0)
         SIGNAL pipe1(63:0)
         SIGNAL XLXN_12
-        SIGNAL XLXN_13
         SIGNAL XLXN_14
         SIGNAL XLXN_15
         SIGNAL match
@@ -29,7 +25,7 @@ BEGIN SCHEMATIC
         PORT Input clk
         PORT Input pipe1(71:0)
         PORT Input ce
-        PORT Input hwregA(62:0)
+        PORT Input hwregA(63:0)
         PORT Output match
         PORT Input match_en
         PORT Input mrst
@@ -55,15 +51,15 @@ BEGIN SCHEMATIC
             LINE N 320 -224 384 -224 
         END BLOCKDEF
         BEGIN BLOCKDEF wordmatch
-            TIMESTAMP 2026 1 29 6 15 27
-            RECTANGLE N 64 -192 320 0 
-            RECTANGLE N 0 -172 64 -148 
-            LINE N 64 -160 0 -160 
+            TIMESTAMP 2026 1 31 1 15 39
             RECTANGLE N 0 -108 64 -84 
             LINE N 64 -96 0 -96 
             RECTANGLE N 0 -44 64 -20 
             LINE N 64 -32 0 -32 
             LINE N 320 -160 384 -160 
+            RECTANGLE N 64 -192 320 0 
+            RECTANGLE N 0 -172 64 -148 
+            LINE N 64 -160 0 -160 
         END BLOCKDEF
         BEGIN BLOCKDEF fd
             TIMESTAMP 2000 1 1 10 10 10
@@ -111,12 +107,6 @@ BEGIN SCHEMATIC
             PIN ce ce
             PIN q(71:0) pipe0(71:0)
         END BLOCK
-        BEGIN BLOCK XLXI_3 wordmatch
-            PIN detain(111:0) XLXN_8(111:0)
-            PIN datacomp(55:0) hwregA(55:0)
-            PIN wildcard(6:0) hwregA(62:56)
-            PIN match XLXN_12
-        END BLOCK
         BEGIN BLOCK XLXI_4 fd
             PIN C clk
             PIN D mrst
@@ -135,6 +125,12 @@ BEGIN SCHEMATIC
             PIN D XLXN_14
             PIN Q match
         END BLOCK
+        BEGIN BLOCK XLXI_8 wordmatch
+            PIN datacomp(55:0) hwregA(55:0)
+            PIN wildcard(6:0) hwregA(62:56)
+            PIN match XLXN_12
+            PIN datain(111:0) XLXN_8(111:0)
+        END BLOCK
     END NETLIST
     BEGIN SHEET 1 3520 2720
         BEGIN INSTANCE XLXI_2 640 624 R0
@@ -151,14 +147,12 @@ BEGIN SCHEMATIC
                 ALIGNMENT SOFT-LEFT
             END DISPLAY
         END BRANCH
-        BEGIN BRANCH hwregA(62:0)
+        BEGIN BRANCH hwregA(63:0)
             WIRE 640 240 800 240
         END BRANCH
-        IOMARKER 640 240 hwregA(62:0) R180 28
+        IOMARKER 640 240 hwregA(63:0) R180 28
         IOMARKER 560 400 clk R180 28
         IOMARKER 560 592 ce R180 28
-        BEGIN INSTANCE XLXI_3 1120 1072 R0
-        END INSTANCE
         BEGIN BRANCH XLXN_8(111:0)
             WIRE 1024 912 1120 912
         END BRANCH
@@ -182,7 +176,8 @@ BEGIN SCHEMATIC
         INSTANCE XLXI_5 1600 1104 R0
         INSTANCE XLXI_6 1920 1232 R0
         BEGIN BRANCH XLXN_12
-            WIRE 1504 912 1600 912
+            WIRE 1504 912 1584 912
+            WIRE 1584 912 1600 912
         END BRANCH
         BEGIN BRANCH XLXN_14
             WIRE 1856 976 1872 976
@@ -221,6 +216,19 @@ BEGIN SCHEMATIC
             WIRE 1584 976 1600 976
             WIRE 1520 976 1520 1024
         END BRANCH
+        BEGIN BRANCH mrst
+            WIRE 1040 1200 1120 1200
+        END BRANCH
+        IOMARKER 1040 1200 mrst R180 28
+        IOMARKER 1520 1024 match_en R90 28
+        IOMARKER 2400 976 match R0 28
+        BEGIN BRANCH hwregA(62:56)
+            WIRE 1040 1040 1056 1040
+            WIRE 1056 1040 1120 1040
+            BEGIN DISPLAY 1040 1040 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
         BEGIN BRANCH hwregA(55:0)
             WIRE 1040 976 1072 976
             WIRE 1072 976 1120 976
@@ -228,17 +236,7 @@ BEGIN SCHEMATIC
                 ALIGNMENT SOFT-BCENTER
             END DISPLAY
         END BRANCH
-        BEGIN BRANCH hwregA(62:56)
-            WIRE 1040 1040 1120 1040
-            BEGIN DISPLAY 1040 1040 ATTR Name
-                ALIGNMENT SOFT-RIGHT
-            END DISPLAY
-        END BRANCH
-        BEGIN BRANCH mrst
-            WIRE 1040 1200 1120 1200
-        END BRANCH
-        IOMARKER 1040 1200 mrst R180 28
-        IOMARKER 1520 1024 match_en R90 28
-        IOMARKER 2400 976 match R0 28
+        BEGIN INSTANCE XLXI_8 1120 1072 R0
+        END INSTANCE
     END SHEET
 END SCHEMATIC

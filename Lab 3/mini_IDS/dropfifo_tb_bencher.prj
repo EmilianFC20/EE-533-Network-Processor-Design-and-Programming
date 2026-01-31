@@ -1,0 +1,4 @@
+verilog work "reg9B.vf"
+verilog work "dual_ram_9B.v"
+verilog work "dropfifo.vf"
+verilog work C:/Xilinx/10.1/ISE/verilog/src/glbl.v

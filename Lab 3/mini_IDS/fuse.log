@@ -1,0 +1,378 @@
+Determining compilation order of HDL files
+Analyzing Verilog file comparator.vf
+Analyzing Verilog file wordmatch.vf
+Analyzing Verilog file small_fifo.v
+WARNING:HDLCompiler:693 - "small_fifo.v" Line 36. Parameter declaration becomes
+   local in small_fifo with formal parameter declaration list
+Analyzing Verilog file reg9B.vf
+Analyzing Verilog file dual_ram_9B.v
+Analyzing Verilog file busmerge.v
+Analyzing Verilog file generic_regs.v
+WARNING:HDLCompiler:870 - "generic_regs.v" Line 160. Use of undefined macro
+   LOG2_FUNC
+Analyzing Verilog file fallthrough_small_fifo_v2.v
+Analyzing Verilog file dropfifo.vf
+Analyzing Verilog file detect7B.vf
+Analyzing Verilog file ids_sim.v
+WARNING:HDLCompiler:693 - "ids_sim.v" Line 92. Parameter declaration becomes
+   local in ids_sim with formal parameter declaration list
+WARNING:HDLCompiler:693 - "ids_sim.v" Line 93. Parameter declaration becomes
+   local in ids_sim with formal parameter declaration list
+WARNING:HDLCompiler:693 - "ids_sim.v" Line 94. Parameter declaration becomes
+   local in ids_sim with formal parameter declaration list
+Analyzing Verilog file ids_tb.tfw
+Analyzing Verilog file C:/Xilinx/10.1/ISE/verilog/src/glbl.v
+Saving Verilog parse-tree work.AND7_MXILINX_comparator into c:/documents and
+settings/student/desktop/mini_ids/isim/work/@a@n@d7_@m@x@i@l@i@n@x_comparator.sd
+b
+Saving Verilog parse-tree work.COMP8_MXILINX_comparator into c:/documents and
+settings/student/desktop/mini_ids/isim/work/@c@o@m@p8_@m@x@i@l@i@n@x_comparator.
+sdb
+Saving Verilog parse-tree work.comparator into c:/documents and
+settings/student/desktop/mini_ids/isim/work/comparator.sdb
+Saving Verilog parse-tree work.OR8_MXILINX_wordmatch into c:/documents and
+settings/student/desktop/mini_ids/isim/work/@o@r8_@m@x@i@l@i@n@x_wordmatch.sdb
+Saving Verilog parse-tree work.wordmatch into c:/documents and
+settings/student/desktop/mini_ids/isim/work/wordmatch.sdb
+Saving Verilog parse-tree work.small_fifo into c:/documents and
+settings/student/desktop/mini_ids/isim/work/small_fifo.sdb
+Saving Verilog parse-tree work.FD16CE_MXILINX_reg9B into c:/documents and
+settings/student/desktop/mini_ids/isim/work/@f@d16@c@e_@m@x@i@l@i@n@x_reg9@b.sdb
+Saving Verilog parse-tree work.FD8CE_MXILINX_reg9B into c:/documents and
+settings/student/desktop/mini_ids/isim/work/@f@d8@c@e_@m@x@i@l@i@n@x_reg9@b.sdb
+Saving Verilog parse-tree work.reg9B into c:/documents and
+settings/student/desktop/mini_ids/isim/work/reg9@b.sdb
+Saving Verilog parse-tree work.dual_ram_9B into c:/documents and
+settings/student/desktop/mini_ids/isim/work/dual_ram_9@b.sdb
+Saving Verilog parse-tree work.busmerge into c:/documents and
+settings/student/desktop/mini_ids/isim/work/busmerge.sdb
+Saving Verilog parse-tree work.generic_regs into c:/documents and
+settings/student/desktop/mini_ids/isim/work/generic_regs.sdb
+Saving Verilog parse-tree work.fallthrough_small_fifo into c:/documents and
+settings/student/desktop/mini_ids/isim/work/fallthrough_small_fifo.sdb
+Saving Verilog parse-tree work.fallthrough_small_fifo_tester into c:/documents
+and
+settings/student/desktop/mini_ids/isim/work/fallthrough_small_fifo_tester.sdb
+Saving Verilog parse-tree work.M2_1_MXILINX_dropfifo into c:/documents and
+settings/student/desktop/mini_ids/isim/work/@m2_1_@m@x@i@l@i@n@x_dropfifo.sdb
+Saving Verilog parse-tree work.FTCLEX_MXILINX_dropfifo into c:/documents and
+settings/student/desktop/mini_ids/isim/work/@f@t@c@l@e@x_@m@x@i@l@i@n@x_dropfifo
+.sdb
+Saving Verilog parse-tree work.CB8CLE_MXILINX_dropfifo into c:/documents and
+settings/student/desktop/mini_ids/isim/work/@c@b8@c@l@e_@m@x@i@l@i@n@x_dropfifo.
+sdb
+Saving Verilog parse-tree work.FTCE_MXILINX_dropfifo into c:/documents and
+settings/student/desktop/mini_ids/isim/work/@f@t@c@e_@m@x@i@l@i@n@x_dropfifo.sdb
+Saving Verilog parse-tree work.CB8CE_MXILINX_dropfifo into c:/documents and
+settings/student/desktop/mini_ids/isim/work/@c@b8@c@e_@m@x@i@l@i@n@x_dropfifo.sd
+b
+Saving Verilog parse-tree work.COMP8_MXILINX_dropfifo into c:/documents and
+settings/student/desktop/mini_ids/isim/work/@c@o@m@p8_@m@x@i@l@i@n@x_dropfifo.sd
+b
+Saving Verilog parse-tree work.FD8CE_MXILINX_dropfifo into c:/documents and
+settings/student/desktop/mini_ids/isim/work/@f@d8@c@e_@m@x@i@l@i@n@x_dropfifo.sd
+b
+Saving Verilog parse-tree work.dropfifo into c:/documents and
+settings/student/desktop/mini_ids/isim/work/dropfifo.sdb
+Saving Verilog parse-tree work.detect7B into c:/documents and
+settings/student/desktop/mini_ids/isim/work/detect7@b.sdb
+Saving Verilog parse-tree work.ids_sim into c:/documents and
+settings/student/desktop/mini_ids/isim/work/ids_sim.sdb
+Saving Verilog parse-tree work.ids_tb into c:/documents and
+settings/student/desktop/mini_ids/isim/work/ids_tb.sdb
+Saving Verilog parse-tree work.glbl into c:/documents and
+settings/student/desktop/mini_ids/isim/work/glbl.sdb
+Starting static elaboration
+WARNING:HDLCompiler:597 - "fallthrough_small_fifo_v2.v" Line 41. Module
+   small_fifo does not have a parameter named PROG_FULL_THRESHOLD
+Restoring Verilog parse-tree unisims_ver.FDCE from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.FD from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.AND3B1 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.AND4 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.XNOR2 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.AND2 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.OR2B1 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.FMAP from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.OR2 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.OR4 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.AND2B1 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.AND3B2 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.XOR2 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.AND5 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.AND3 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.VCC from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.FDC from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree xilinxcorelib_ver.BLKMEMDP_V6_3 from
+c:/xilinx/10.1/ise/verilog/hdp/nt/xilinxcorelib_ver/xilinxcorelib_ver.sdbl
+WARNING:HDLCompiler:559 - "generic_regs.v" Line 248. Instantiating unknown
+   module generic_sw_regs
+WARNING:HDLCompiler:559 - "generic_regs.v" Line 289. Instantiating unknown
+   module generic_hw_regs
+WARNING:HDLCompiler:1016 - "ids_sim.v" Line 112. Port prog_full is not connected
+   to this instance
+WARNING:HDLCompiler:189 - "ids_sim.v" Line 180. Actual bit length 96 differs
+   from formal bit length 48 for port software_regs
+WARNING:HDLCompiler:189 - "ids_sim.v" Line 183. Actual bit length 32 differs
+   from formal bit length 16 for port hardware_regs
+Completed static elaboration
+Fuse Memory Usage: 55176 Kb
+Fuse CPU Usage: 264 ms
+Compiling module glbl
+Compiling module small_fifo(WIDTH=72,MAX_DEPTH_BI...
+Compiling module fallthrough_small_fifo(WIDTH=72,...
+Compiling module busmerge
+Compiling module FDCE(INIT=1'b0)_0
+Compiling module FDCE(INIT=1'b0)_1
+Compiling module FDCE(INIT=1'b0)_2
+Compiling module FDCE(INIT=1'b0)_3
+Compiling module FDCE(INIT=1'b0)_4
+Compiling module FDCE(INIT=1'b0)_5
+Compiling module FDCE(INIT=1'b0)_6
+Compiling module FDCE(INIT=1'b0)_7
+Compiling module FDCE(INIT=1'b0)_8
+Compiling module FDCE(INIT=1'b0)_9
+Compiling module FDCE(INIT=1'b0)_10
+Compiling module FDCE(INIT=1'b0)_11
+Compiling module FDCE(INIT=1'b0)_12
+Compiling module FDCE(INIT=1'b0)_13
+Compiling module FDCE(INIT=1'b0)_14
+Compiling module FDCE(INIT=1'b0)_15
+Compiling module FDCE(INIT=1'b0)_16
+Compiling module FDCE(INIT=1'b0)_17
+Compiling module FDCE(INIT=1'b0)_18
+Compiling module FDCE(INIT=1'b0)_19
+Compiling module FDCE(INIT=1'b0)_20
+Compiling module FDCE(INIT=1'b0)_21
+Compiling module FDCE(INIT=1'b0)_22
+Compiling module FDCE(INIT=1'b0)_23
+Compiling module FDCE(INIT=1'b0)_24
+Compiling module FDCE(INIT=1'b0)_25
+Compiling module FDCE(INIT=1'b0)_26
+Compiling module FDCE(INIT=1'b0)_27
+Compiling module FDCE(INIT=1'b0)_28
+Compiling module FDCE(INIT=1'b0)_29
+Compiling module FDCE(INIT=1'b0)_30
+Compiling module FDCE(INIT=1'b0)_31
+Compiling module FDCE(INIT=1'b0)_32
+Compiling module FDCE(INIT=1'b0)_33
+Compiling module FDCE(INIT=1'b0)_34
+Compiling module FDCE(INIT=1'b0)_35
+Compiling module FDCE(INIT=1'b0)_36
+Compiling module FDCE(INIT=1'b0)_37
+Compiling module FDCE(INIT=1'b0)_38
+Compiling module FDCE(INIT=1'b0)_39
+Compiling module FDCE(INIT=1'b0)_40
+Compiling module FDCE(INIT=1'b0)_41
+Compiling module FDCE(INIT=1'b0)_42
+Compiling module FDCE(INIT=1'b0)_43
+Compiling module FDCE(INIT=1'b0)_44
+Compiling module FDCE(INIT=1'b0)_45
+Compiling module FDCE(INIT=1'b0)_46
+Compiling module FDCE(INIT=1'b0)_47
+Compiling module FDCE(INIT=1'b0)_48
+Compiling module FDCE(INIT=1'b0)_49
+Compiling module FDCE(INIT=1'b0)_50
+Compiling module FDCE(INIT=1'b0)_51
+Compiling module FDCE(INIT=1'b0)_52
+Compiling module FDCE(INIT=1'b0)_53
+Compiling module FDCE(INIT=1'b0)_54
+Compiling module FDCE(INIT=1'b0)_55
+Compiling module FDCE(INIT=1'b0)_56
+Compiling module FDCE(INIT=1'b0)_57
+Compiling module FDCE(INIT=1'b0)_58
+Compiling module FDCE(INIT=1'b0)_59
+Compiling module FDCE(INIT=1'b0)_60
+Compiling module FDCE(INIT=1'b0)_61
+Compiling module FDCE(INIT=1'b0)_62
+Compiling module FDCE(INIT=1'b0)_63
+Compiling module FDCE(INIT=1'b0)_64
+Compiling module FDCE(INIT=1'b0)_65
+Compiling module FDCE(INIT=1'b0)_66
+Compiling module FDCE(INIT=1'b0)_67
+Compiling module FDCE(INIT=1'b0)_68
+Compiling module FDCE(INIT=1'b0)_69
+Compiling module FDCE(INIT=1'b0)_70
+Compiling module FDCE(INIT=1'b0)_71
+Compiling module FDCE(INIT=1'b0)_72
+Compiling module FDCE(INIT=1'b0)_73
+Compiling module FDCE(INIT=1'b0)_74
+Compiling module FDCE(INIT=1'b0)_75
+Compiling module FDCE(INIT=1'b0)_76
+Compiling module FDCE(INIT=1'b0)_77
+Compiling module FDCE(INIT=1'b0)_78
+Compiling module FDCE(INIT=1'b0)_79
+Compiling module FDCE(INIT=1'b0)_80
+Compiling module FDCE(INIT=1'b0)_81
+Compiling module FDCE(INIT=1'b0)_82
+Compiling module FDCE(INIT=1'b0)_83
+Compiling module FDCE(INIT=1'b0)_84
+Compiling module FDCE(INIT=1'b0)_85
+Compiling module FDCE(INIT=1'b0)_86
+Compiling module FDCE(INIT=1'b0)_87
+Compiling module FDCE(INIT=1'b0)_88
+Compiling module FDCE(INIT=1'b0)_89
+Compiling module FDCE(INIT=1'b0)_90
+Compiling module FDCE(INIT=1'b0)_91
+Compiling module FDCE(INIT=1'b0)_92
+Compiling module FDCE(INIT=1'b0)_93
+Compiling module FDCE(INIT=1'b0)_94
+Compiling module FDCE(INIT=1'b0)_95
+Compiling module FDCE(INIT=1'b0)_96
+Compiling module FDCE(INIT=1'b0)_97
+Compiling module FDCE(INIT=1'b0)_98
+Compiling module FDCE(INIT=1'b0)_99
+Compiling module FDCE(INIT=1'b0)_100
+Compiling module FDCE(INIT=1'b0)_101
+Compiling module FDCE(INIT=1'b0)_102
+Compiling module FDCE(INIT=1'b0)_103
+Compiling module FDCE(INIT=1'b0)_104
+Compiling module FDCE(INIT=1'b0)_105
+Compiling module FDCE(INIT=1'b0)_106
+Compiling module FDCE(INIT=1'b0)_107
+Compiling module FDCE(INIT=1'b0)_108
+Compiling module FDCE(INIT=1'b0)_109
+Compiling module FDCE(INIT=1'b0)_110
+Compiling module FDCE(INIT=1'b0)_111
+Compiling module FDCE(INIT=1'b0)_112
+Compiling module FDCE(INIT=1'b0)_113
+Compiling module FDCE(INIT=1'b0)_114
+Compiling module FDCE(INIT=1'b0)_115
+Compiling module FDCE(INIT=1'b0)_116
+Compiling module FDCE(INIT=1'b0)_117
+Compiling module FDCE(INIT=1'b0)_118
+Compiling module FDCE(INIT=1'b0)_119
+Compiling module FDCE(INIT=1'b0)_120
+Compiling module FDCE(INIT=1'b0)_121
+Compiling module FDCE(INIT=1'b0)_122
+Compiling module FDCE(INIT=1'b0)_123
+Compiling module FDCE(INIT=1'b0)_124
+Compiling module FDCE(INIT=1'b0)_125
+Compiling module FDCE(INIT=1'b0)_126
+Compiling module FDCE(INIT=1'b0)_127
+Compiling module FDCE(INIT=1'b0)_128
+Compiling module FDCE(INIT=1'b0)_129
+Compiling module FDCE(INIT=1'b0)_130
+Compiling module FDCE(INIT=1'b0)_131
+Compiling module FDCE(INIT=1'b0)_132
+Compiling module FDCE(INIT=1'b0)_133
+Compiling module FDCE(INIT=1'b0)_134
+Compiling module FDCE(INIT=1'b0)_135
+Compiling module FDCE(INIT=1'b0)_136
+Compiling module FDCE(INIT=1'b0)_137
+Compiling module FDCE(INIT=1'b0)_138
+Compiling module FDCE(INIT=1'b0)_139
+Compiling module FDCE(INIT=1'b0)_140
+Compiling module FDCE(INIT=1'b0)_141
+Compiling module FDCE(INIT=1'b0)_142
+Compiling module FDCE(INIT=1'b0)_143
+Compiling module FDCE(INIT=1'b0)_144
+Compiling module FDCE(INIT=1'b0)_145
+Compiling module FDCE(INIT=1'b0)_146
+Compiling module FDCE(INIT=1'b0)_147
+Compiling module FDCE(INIT=1'b0)_148
+Compiling module FDCE(INIT=1'b0)_149
+Compiling module FDCE(INIT=1'b0)_150
+Compiling module FDCE(INIT=1'b0)_151
+Compiling module FDCE(INIT=1'b0)_152
+Compiling module FDCE(INIT=1'b0)_153
+Compiling module FDCE(INIT=1'b0)_154
+Compiling module FDCE(INIT=1'b0)_155
+Compiling module FDCE(INIT=1'b0)_156
+Compiling module FDCE(INIT=1'b0)_157
+Compiling module FDCE(INIT=1'b0)_158
+Compiling module FDCE(INIT=1'b0)_159
+Compiling module FDCE(INIT=1'b0)_160
+Compiling module FDCE(INIT=1'b0)_161
+Compiling module FDCE(INIT=1'b0)_162
+Compiling module FDCE(INIT=1'b0)_163
+Compiling module FDCE(INIT=1'b0)_164
+Compiling module FDCE(INIT=1'b0)_165
+Compiling module FDCE(INIT=1'b0)_166
+Compiling module FDCE(INIT=1'b0)_167
+Compiling module FDCE(INIT=1'b0)_168
+Compiling module FD8CE_MXILINX_reg9B
+Compiling module FD16CE_MXILINX_reg9B
+Compiling module FD16CE_MXILINX_reg9B_2
+Compiling module FD16CE_MXILINX_reg9B_3
+Compiling module FD16CE_MXILINX_reg9B_4
+Compiling module reg9B
+Compiling module FD(INIT=1'b0)_0
+Compiling module FD(INIT=1'b0)_1
+Compiling module FD(INIT=1'b0)_2
+Compiling module FD(INIT=1'b0)_3
+Compiling module FD(INIT=1'b0)_4
+Compiling module AND3B1
+Compiling module AND4
+Compiling module XNOR2
+Compiling module AND2
+Compiling module COMP8_MXILINX_comparator
+Compiling module OR2B1
+Compiling module FMAP
+Compiling module AND7_MXILINX_comparator
+Compiling module comparator
+Compiling module OR2
+Compiling module OR4
+Compiling module OR8_MXILINX_wordmatch
+Compiling module wordmatch
+Compiling module detect7B
+Compiling module AND2B1
+Compiling module FD8CE_MXILINX_dropfifo
+Compiling module COMP8_MXILINX_dropfifo
+Compiling module AND3B2
+Compiling module XOR2
+Compiling module FTCE_MXILINX_dropfifo
+Compiling module FTCE_MXILINX_dropfifo_2
+Compiling module FTCE_MXILINX_dropfifo_3
+Compiling module FTCE_MXILINX_dropfifo_4
+Compiling module FTCE_MXILINX_dropfifo_5
+Compiling module FTCE_MXILINX_dropfifo_6
+Compiling module FTCE_MXILINX_dropfifo_7
+Compiling module FTCE_MXILINX_dropfifo_8
+Compiling module AND5
+Compiling module AND3
+Compiling module VCC
+Compiling module CB8CE_MXILINX_dropfifo
+Compiling module FDC(INIT=1'b0)_0
+Compiling module M2_1_MXILINX_dropfifo
+Compiling module FTCLEX_MXILINX_dropfifo
+Compiling module FTCLEX_MXILINX_dropfifo_2
+Compiling module FTCLEX_MXILINX_dropfifo_3
+Compiling module FTCLEX_MXILINX_dropfifo_4
+Compiling module FTCLEX_MXILINX_dropfifo_5
+Compiling module FTCLEX_MXILINX_dropfifo_6
+Compiling module FTCLEX_MXILINX_dropfifo_7
+Compiling module FTCLEX_MXILINX_dropfifo_8
+Compiling module CB8CLE_MXILINX_dropfifo
+Compiling module FD8CE_MXILINX_reg9B_2
+Compiling module FD16CE_MXILINX_reg9B_5
+Compiling module FD16CE_MXILINX_reg9B_6
+Compiling module FD16CE_MXILINX_reg9B_7
+Compiling module FD16CE_MXILINX_reg9B_8
+Compiling module reg9B_2
+Compiling module BLKMEMDP_V6_3(c_addra_width=8,c_...
+Compiling module dual_ram_9B
+Compiling module dropfifo
+Compiling module generic_regs(UDP_REG_SRC_WIDTH=2...
+Compiling module ids_sim
+Compiling module ids_tb
+Compiled 238 Verilog Units
+Built simulation executable ids_tb_isim_beh.exe
+Fuse Memory Usage: 59788 Kb
+Fuse CPU Usage: 655 ms

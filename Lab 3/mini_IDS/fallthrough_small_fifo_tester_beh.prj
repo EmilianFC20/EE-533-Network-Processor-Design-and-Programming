@@ -1,0 +1,3 @@
+verilog work "small_fifo.v"
+verilog work "fallthrough_small_fifo_v2.v"
+verilog work "C:/Xilinx/10.1/ISE/verilog/src/glbl.v"

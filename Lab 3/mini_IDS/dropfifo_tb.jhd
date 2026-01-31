@@ -1,0 +1,3 @@
+MODULE dropfifo_tb
+SUBMODULE dropfifo
+INSTANCE UUT

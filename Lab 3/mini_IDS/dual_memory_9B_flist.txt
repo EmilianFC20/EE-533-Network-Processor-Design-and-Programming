@@ -1,0 +1,12 @@
+# Output products list for <dual_memory_9B>
+dual_memory_9B.asy
+dual_memory_9B.ngc
+dual_memory_9B.sym
+dual_memory_9B.v
+dual_memory_9B.veo
+dual_memory_9B.vhd
+dual_memory_9B.vho
+dual_memory_9B.xco
+dual_memory_9B_blk_mem_gen_v2_7_xst_1.ngc_xst.xrpt
+dual_memory_9B_flist.txt
+dual_memory_9B_xmdf.tcl

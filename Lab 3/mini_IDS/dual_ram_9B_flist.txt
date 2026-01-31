@@ -1,0 +1,11 @@
+# Output products list for <dual_ram_9B>
+dual_ram_9B.asy
+dual_ram_9B.ngc
+dual_ram_9B.sym
+dual_ram_9B.v
+dual_ram_9B.veo
+dual_ram_9B.vhd
+dual_ram_9B.vho
+dual_ram_9B.xco
+dual_ram_9B_flist.txt
+dual_ram_9B_xmdf.tcl
