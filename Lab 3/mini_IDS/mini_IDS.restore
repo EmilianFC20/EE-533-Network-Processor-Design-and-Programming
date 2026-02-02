@@ -856,7 +856,7 @@ proc restore { { project_dir "" } } {
   } "A problem occured while restoring user files."
 
   set imported_files { 
-      "Z:/EE533/Lab 3/lab3_mini_ids_src_1/ids_sim/ids_tb.xwv" 
+      "../lab3_mini_ids_src_1/ids_sim/ids_tb.xwv" 
       "busmerge.sym" 
       "comparator.sym" 
       "dropfifo_tb.xwv" 
@@ -957,6 +957,7 @@ proc restore { { project_dir "" } } {
       "A" "" "" "" "PROP_SynthXORCollapse" "true" 
       "A" "" "" "" "PROP_Top_Level_Module_Type" "Schematic" 
       "A" "" "" "" "PROP_UseSmartGuide" "false" 
+      "A" "" "" "" "PROP_UserBrowsedStrategyFiles" "" 
       "A" "" "" "" "PROP_UserConstraintEditorPreference" "Constraints Editor" 
       "A" "" "" "" "PROP_UserEditorCustomSetting" "" 
       "A" "" "" "" "PROP_UserEditorPreference" "ISE Text Editor" 
